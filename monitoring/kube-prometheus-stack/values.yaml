@@ -4,7 +4,7 @@ kube-prometheus-stack:
   prometheus:
     prometheusSpec:
       retention: 15d
-      retentionSize: "40GB"
+      retentionSize: "5GB"
       resources:
         requests:
           memory: 2Gi
@@ -14,11 +14,11 @@ kube-prometheus-stack:
       storageSpec:
         volumeClaimTemplate:
           spec:
-            storageClassName: gp3
+            storageClassName: longhorn
             accessModes: ["ReadWriteOnce"]
             resources:
               requests:
-                storage: 50Gi
+                storage: 5Gi
       # Scrape all ServiceMonitors across namespaces
       serviceMonitorSelectorNilUsesHelmValues: false
       podMonitorSelectorNilUsesHelmValues: false
@@ -49,8 +49,8 @@ kube-prometheus-stack:
       storage:
         volumeClaimTemplate:
           spec:
-            storageClassName: gp3
+            storageClassName: longhorn
             accessModes: ["ReadWriteOnce"]
             resources:
               requests:
-                storage: 10Gi
+                storage: 5Gi
