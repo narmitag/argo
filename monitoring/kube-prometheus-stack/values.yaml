@@ -27,6 +27,14 @@ kube-prometheus-stack:
   # Grafana configuration
   grafana:
     adminPassword: "" # Use a secret instead
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      hosts:
+        - grafana.k8s.tlotech.com
+      paths:
+        - /
+      pathType: Prefix
     persistence:
       enabled: true
       size: 10Gi
