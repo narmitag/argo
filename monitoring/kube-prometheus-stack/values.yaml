@@ -1,5 +1,11 @@
 # monitoring/kube-prometheus-stack/values.yaml
 kube-prometheus-stack:
+  prometheusOperator:
+    admissionWebhooks:
+      enabled: false
+    tls:
+      enabled: false
+
   # Prometheus configuration
   prometheus:
     prometheusSpec:

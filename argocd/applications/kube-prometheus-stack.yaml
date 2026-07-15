@@ -7,7 +7,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: monitoring
+  project: default
   source:
     repoURL: https://gitlab.tlotech.com/lab/argo.git
     targetRevision: main
@@ -15,7 +15,6 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-        - values-production.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
