@@ -178,7 +178,7 @@ spec:
 
   instances:
   - name: instance1
-    replicas: 3
+    replicas: 5
 #    initContainer:
 #      image: docker.io/percona/percona-postgresql-operator:2.7.0
 #      resources:
