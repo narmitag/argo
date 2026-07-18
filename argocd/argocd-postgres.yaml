@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gitlab.tlotech.com/lab/argocd.git
+    repoURL: https://gitlab.tlotech.com/lab/argo.git
     targetRevision: main
     path: postgres 
   destination:
