@@ -1,0 +1,53 @@
+# garage/values.yaml
+garage:
+  replicationMode: "3"
+  s3:
+    api:
+      region: "garage"
+      rootDomain: ".s3.k8s.tlotech.com"
+    web:
+      rootDomain: ".web.k8s.tlotech.com"
+
+persistence:
+  enabled: true
+  meta:
+    storageClass: longhorn
+    size: 1Gi
+  data:
+    storageClass: longhorn
+    size: 20Gi
+
+deployment:
+  kind: StatefulSet
+  replicaCount: 3
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 512Mi
+  limits:
+    memory: 1Gi
+
+service:
+  type: ClusterIP
+
+ingress:
+  s3:
+    api:
+      enabled: true
+      className: traefik
+      hosts:
+        - host: s3.k8s.tlotech.com
+          paths:
+            - path: /
+              pathType: Prefix
+        - host: "*.s3.k8s.tlotech.com"
+          paths:
+            - path: /
+              pathType: Prefix
+
+monitoring:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
