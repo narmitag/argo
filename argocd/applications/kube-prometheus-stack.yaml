@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gitlab.tlotech.com/lab/argo.git
+    repoURL: https://github.com/narmitag/argo.git
     targetRevision: main
     path: monitoring/kube-prometheus-stack
     helm:
